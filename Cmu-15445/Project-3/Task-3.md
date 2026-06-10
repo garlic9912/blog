@@ -1,7 +1,5 @@
 # 编码规范
 
----
-
 - 原版代码风格
   
   - 太过冗余, 需要`if-else`配合
@@ -22,7 +20,7 @@ if (right_itr_ == right_hash_table.End()) {
 right_finish_ = (right_itr_ == right_hash_table_.End());
 ```
 
----
+
 
 # Intermediate_result_page 的设计动机
 

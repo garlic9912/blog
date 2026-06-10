@@ -450,8 +450,6 @@ ROWS BETWEEN 起点 AND 终点
 
 - 外部仅仅是调换行的顺序
 
-
-
 ## 运行时动态选择模板类型：类型擦除与多态包装器
 
 ### 模板类的问题
@@ -533,8 +531,6 @@ class IndexWrapperImpl : public IndexWrapper {
 
 - 避免头文件膨胀: 减少 `#include` 传播
 
-
-
 ## Vector 中 resize 和 reserve
 
 | 特性                  | `resize(n)`              | `reserve(n)`             |
@@ -548,8 +544,6 @@ class IndexWrapperImpl : public IndexWrapper {
 - `resize()`预分配内存, 同时在内存中构造默认元素, `vector`长度发生变化
 
 - `reserve()`只分配内存, 不构造元素, `vector`长度保持不变
-
-
 
 # 代码反思
 
@@ -565,8 +559,6 @@ class IndexWrapperImpl : public IndexWrapper {
 | --------- | ---------- | ---------------------- |
 | **延迟 删除** | 归并全部结束后才释放 | 同时持有整个输入链表 + 输出链表，必然溢出 |
 | **边读边删**  | 当前页读完后立即释放 | 永远只需 3 个页（2 输入 + 1 输出） |
-
-
 
 # TODO 补充
 
