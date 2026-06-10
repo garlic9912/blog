@@ -78,7 +78,7 @@ auto operator=(const TableIterator& other) -> TableIterator& {
 
 ## Bustub TablePage 设计
 
-![](/home/garlic/Desktop/self-learning/blog/assets/images/Snipaste_2026-06-10_19-19-24.png)
+![](../../assets/images/cmu15445_p3_task1_1.png)
 
 一种基于`slotted page`设计出的`POD`页面对象
 
