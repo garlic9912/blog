@@ -42,3 +42,54 @@
 | 虚拟机资源开销大 | 容器共享宿主机内核，无需完整 Guest OS，占用内存（MB vs GB）、启动时间（秒 vs 分钟）均优于虚拟机 |
 | 微服务部署复杂  | 每个微服务独立容器，独立部署、扩展、升级                                       |
 | 自动化运维    | 作为流水线的标准化构件，从代码提交到自动构建、测试、部署形成闭环s                          |
+
+# Python 虚拟环境
+
+Python虚拟环境是一个**独立的Python运行环境**，为每个项目创建隔离的解释器和依赖包空间. 虚拟环境通常就**放在项目目录下面**，它的操作和作用范围**局限于这个项目本身**。
+
+## 虚拟环境的作用
+
+| 问题                              | 解决方案                     |
+| ------------------------------- | ------------------------ |
+| 项目A需要Django 2.2，项目B需要Django 4.0 | ✅ 虚拟环境隔离不同版本             |
+| 全局python版本过多, 造成环境污染            | ✅ 每个项目用自己独立的版本           |
+| 依赖包版本冲突                         | ✅ 互不干扰                   |
+| 项目迁移困难                          | ✅ 通过requirements.txt轻松复现 |
+
+```textile
+全局环境             虚拟环境A             虚拟环境B
+├─ Python 3.9        ├─ Python 3.9         ├─ Python 3.9
+                     └─ site-packages/     └─ site-packages/
+                       ├─ django 2.2         ├─ django 4.0
+                       └─ numpy              └─ flask
+```
+
+## 基本操作
+
+```python
+# 创建虚拟环境
+python -m venv myenv
+
+# 激活虚拟环境
+# Linux/Mac:
+source myenv/bin/activate
+# Windows:
+myenv\Scripts\activate
+
+# 使用 python 命令
+...
+
+# 退出虚拟环境
+deactivate
+
+# 删除虚拟环境（直接删除文件夹）
+rm -rf myenv
+```
+## VsCode 解析器
+`vscode`默认使用多个是全局的`python`解析器, 要设置成虚拟环境内部的解析器
+- 操作方法
+```text
+Ctrl + Shift + P
+输入 Python: Select Interpreter
+输入虚拟环境解析器的路径, 例如: /home/garlic/openlakes-dev/venv/bin/python
+```
