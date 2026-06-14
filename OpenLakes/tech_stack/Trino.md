@@ -1,10 +1,12 @@
 # 概念
 **Trino**是一个开源的**分布式 SQL 查询引擎**，专门用于对大型数据集进行**交互式分析**。
+
 ## 核心特点
 - **非存储系统**：不存储数据，只负责查询计算。数据存储在外部源（HDFS,S3,MySQL,Kafka,Iceberg 等）。
 - **联邦查询**：单个 SQL 可以跨多个异构数据源联合查询。
 - **高性能**：基于内存并行处理，支持多租户，延迟低（亚秒到分钟级）。
 - **ANSI SQL 兼容**：支持标准 SQL，以及复杂查询（聚合、多表 Join、窗口函数等）。
+
 ## 典型使用场景
 - 数据湖分析（查询 Hive,Iceberg,Delta Lake 上的 PB 级数据）
 - 跨数据库联邦（统一查询 MySQL,PostgreSQL,MongoDB,Elasticsearch）
@@ -73,4 +75,21 @@ for row in results:
 # 4. 关闭连接
 cur.close()
 conn.close()
+```
+
+# 易错点
+- `Trino`需要的是原生的`float`数组(列表), 如果是`numpy`数组, 需要先进行转换
+```python
+# 这里的 embedding 是一个一维 numpy 数组
+vector = [float(x) for x in embedding]
+s3_path = f"s3a://{BUCKET}/{name}"
+
+# map(str, vector) 把每个float转成字符串，才能用join拼成SQL字符串
+# 结果类似: ARRAY[0.1,0.2,0.3]
+vector_sql = "ARRAY[" + ",".join(map(str, vector)) + "]"
+
+# 存入Trino
+cur.execute(f"SELECT COUNT(*) FROM iceberg.default.images WHERE id='{name}'")
+if cur.fetchone()[0] == 0:
+cur.execute(f"INSERT INTO iceberg.default.images VALUES ('{name}', '{s3_path}', {vector_sql})")
 ```

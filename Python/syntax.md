@@ -76,7 +76,7 @@ c = float(b)
   c = random.random()  # [0, 1] 之内的随机小数
   ```
 
-# 字符串
+## 字符串
 - 字符串基本操作
 ```python
 """
@@ -142,7 +142,7 @@ str2 = str1.lower()
 str3 = str.strip()
 ```
 
-# 分支与循环
+## 分支与循环
 - 分支语句 
   ```python
   a = 11
@@ -199,7 +199,7 @@ else:
     print("end")
 ```
 
-# 列表操作
+## 列表操作
 - 基本操作
 ```python
 # 列表可以存放不同类型的元素
@@ -244,7 +244,7 @@ a.sort()  # 直接修改 a 进行排序
 b = sorted(a)  # 使用 python 内置函数, 返回新的列表
 ```
 
-# 元组, 集合, 字典
+## 元组, 集合, 字典
 - 元组
   ```python
   tuple = (1, 2, "22")
@@ -290,7 +290,7 @@ for k, v in dir.items():
     print(f"Key: {k}, Val: {v}")
 ```
 
-# 函数
+## 函数
 - 函数定义
 ```python
   # 基本定义
@@ -372,6 +372,82 @@ def day2():
     DAY += 1
 ```
 
+## 异常处理
+### try-except 结构
+#### try-except
+```python
+try:
+    # 可能抛出异常的代码
+    num = int(input("输入数字: "))
+    result = 10 / num
+    print(f"结果是: {result}")
+except ZeroDivisionError:
+    print("错误：不能除以零！")
+except ValueError:
+    print("错误：请输入有效的数字！")
+```
+- `try` 块中的代码被监控, 如果发生 `ZeroDivisionError`，执行对应 `except` 块, 如果发生 `ValueError`，执行对应 `except` 块
+- 如果没有异常，跳过所有 `except`
+
+#### try-except-else
+- `else`在`try`没有发生异常时执行
+```python
+try:
+    result = 10 / divisor
+except ZeroDivisionError:
+    print("除数不能为零")
+else:
+    # 仅在 try 块没有抛出异常时执行
+    print(f"计算成功: {result}")
+```
+
+#### try-except-finally
+- `finally`语块中的内容, 无论是否发生异常都会执行
+```python
+f = None
+try:
+    f = open("data.txt", "r")
+    content = f.read()
+except FileNotFoundError:
+    print("文件不存在")
+finally:
+    # 无论是否有异常，都会执行（通常用于清理资源）
+    if f:
+        f.close()
+        print("文件已关闭")
+```
+
+### 捕获多个异常
+```python
+try:
+    risky_code()
+except (ZeroDivisionError, ValueError, TypeError) as e:
+    print(f"发生错误: {e}")  # e 是异常对象
+```
+- **慎用捕获所有异常**
+```python
+try:
+    dangerous_operation()
+except Exception as e:
+    print(f"捕获到异常: {e}")
+    # 这能捕获几乎所有异常，但会掩盖你未预料到的错误（如 KeyboardInterrupt、SystemExit）
+```
+- 这会导致无法接收由代码逻辑所导致的异常, 从而无法察觉代码问题
+
+### 抛出异常
+```python
+def validate_age(age):
+    if age < 0:
+        raise ValueError("年龄不能为负数")
+    if age > 150:
+        raise ValueError("年龄超出合理范围")
+    return age
+
+try:
+    validate_age(-5)
+except ValueError as e:
+    print(e)  # 年龄不能为负数
+```
 
 # 其他语法
 ## 上下文管理器 with
@@ -390,3 +466,133 @@ finally:
     f.close()  # 必须手动写，还容易忘
 ```
 	`with` 就是把这个 try/finally 模式封装起来了
+
+
+## 列表推导式
+### 基本形式
+```python
+[表达式 for 变量 in 可迭代对象]
+```
+等价于:
+```python
+result = []
+for 变量 in 可迭代对象:
+    result.append(表达式)
+```
+简单的例子:
+```python
+squares = [x**2 for x in range(5)]
+# [0, 1, 4, 9, 16]
+```
+### 条件过滤
+```python
+[表达式 for 变量 in 可迭代对象 if 条件]
+```
+简单的例子:
+```python
+evens = [x for x in range(10) if x % 2 == 0]
+# [0, 2, 4, 6, 8]
+```
+
+## 生成器表达式
+### 和列表推导式的区别
+```python
+list_comp = [x**2 for x in range(10)]  # 立刻算完，全部放内存
+gen_expr  = (x**2 for x in range(10))  # 什么都没算，只是记住了"怎么算"
+```
+```python
+print(list_comp)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(gen_expr)   # <generator object <genexpr> at 0x7f3a1b2c3d40>
+```
+
+### 使用方法
+- `next`取值
+```python
+gen = (x**2 for x in range(5))
+
+next(gen)  # 0  ← 算第一个
+next(gen)  # 1  ← 算第二个
+next(gen)  # 4
+next(gen)  # 9
+next(gen)  # 16
+next(gen)  # StopIteration 异常，没了
+```
+- `for`循环取值
+```python
+for val in (x**2 for x in range(5)):
+    print(val)
+```
+
+### 存在的意义
+假设有 1000 万条数据：
+```python
+# 列表推导式：先把 1000 万个结果全算出来，全塞进内存
+total = sum([x**2 for x in range(10_000_000)])
+
+# 生成器：每次只算一个，sum 消费一个扔一个，内存里始终只有一个值
+total = sum(x**2 for x in range(10_000_000))
+```
+
+### 注意事项
+#### 一次性的
+- 生成器用完就空了，不能重置：
+```python
+gen = (x**2 for x in range(3))
+
+list(gen)  # [0, 1, 4]
+list(gen)  # []  ← 已经耗尽，再迭代得到空
+```
+需要重复使用就得重新创建，或者用列表
+
+#### 作为函数唯一参数时可省略括号
+```python
+sum((x**2 for x in range(10)))  # 两层括号
+sum(x**2 for x in range(10))    # 省一层，完全等价
+
+",".join((f"'{n}'" for n in names))
+",".join(f"'{n}'" for n in names)   # 省一层，完全等价
+```
+
+## lambda 表达式
+- 语法
+```python
+lambda 参数: 返回值表达式
+```
+只能写**一个表达式**，没有函数体，没有 `return`，**表达式的值就是返回值**
+
+- 具体例子
+```python
+# 普通函数
+def add(x, y):
+    return x + y
+
+# 等价的 lambda
+add = lambda x, y: x + y
+```
+
+# 内置库函数
+## map(函数, 可迭代对象)
+- 把函数依次应用到每个元素上
+```python
+map(str, [1, 2, 3])
+# 等价于
+(str(x) for x in [1, 2, 3])
+```
+- 两者几乎完全一样，都是惰性的，都返回一个迭代器。
+```python
+result = map(str, [1, 2, 3])
+print(result)        # <map object at 0x...>，还没算
+
+list(result)         # ["1", "2", "3"]，强制求值
+",".join(result)     # "1,2,3"，join 会迭代它
+```
+- 可传入自定义函数
+```python
+def double(x):
+    return x * 2
+
+list(map(double, [1, 2, 3]))  # [2, 4, 6]
+
+# 简单函数通常用 lambda
+list(map(lambda x: x * 2, [1, 2, 3]))  # [2, 4, 6]
+```

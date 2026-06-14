@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a9ab0552dbeac8c5",
+        "id": "0ac3f10155b3f683",
         "type": "tabs",
         "children": [
           {
-            "id": "d786d44a5cd4e9a7",
+            "id": "2076ffc82e7ce870",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/pickle.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "pickle"
+              "title": "New tab"
             }
           }
         ]
@@ -95,9 +91,8 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Python/syntax.md",
-                "collapseAll": false,
-                "extraContext": false,
+                "collapseAll": true,
+                "extraContext": true,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
@@ -105,7 +100,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for syntax"
+              "title": "Backlinks"
             }
           },
           {
@@ -157,16 +152,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/syntax.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of syntax"
+              "title": "Outline"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -184,24 +179,29 @@
       "bases:Create new base": false
     }
   },
-  "active": "d786d44a5cd4e9a7",
+  "active": "2076ffc82e7ce870",
   "lastOpenFiles": [
-    "Python/pickle.md",
-    "Python/BytesIO.md",
-    "Python/syntax.md",
-    "Python/Numpy.md",
-    "OpenLakes/tech_stack/MinIO.md",
-    "OpenLakes/tech_stack/PyTorch(torch).md",
-    "OpenLakes/tech_stack/minio&iceberg.md",
+    "OpenLakes/summary.md",
     "OpenLakes/tech_stack/Trino.md",
-    "OpenLakes/tech_stack/Pillow(PIL).md",
+    "Python/FastAPI.md",
+    "Python/syntax.md",
+    "Python/Logging.md",
     "OpenLakes/tech_stack/Faiss.md",
     "OpenLakes/tech_stack/CLIP/CN_CLIP.md",
+    "Python/Numpy.md",
+    "OpenLakes/项目文档.md",
     "OpenLakes/tech_stack/CLIP/CLIP.md",
-    "OpenLakes/tech_stack/CLIP",
-    "OpenLakes/environment_setup.md",
-    "OpenLakes/vector_db/ANN_algorithm.md",
+    "common-commands.md",
     "OpenLakes/vector_db/basic_conception.md",
+    "OpenLakes/vector_db/ANN_algorithm.md",
+    "OpenLakes/environment_setup.md",
+    "OpenLakes/tech_stack/MinIO.md",
+    "OpenLakes/tech_stack/PyTorch(torch).md",
+    "OpenLakes/tech_stack/Pillow(PIL).md",
+    "Python/pickle.md",
+    "Python/BytesIO.md",
+    "OpenLakes/tech_stack/minio&iceberg.md",
+    "OpenLakes/tech_stack/CLIP",
     "OpenLakes/tech_stack",
     "2026-06-13.md",
     "Untitled.canvas",

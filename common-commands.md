@@ -1,0 +1,1 @@
+- `docker exec -it openlakes-trino trino --execute "SQL语句"` `

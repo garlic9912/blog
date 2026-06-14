@@ -33,6 +33,14 @@ with torch.no_grad():
 - `.pooler_output`：取池化后的特征向量（通常为 `[batch_size, feature_dim]`）
 - `.numpy().flatten()`：转为 `NumPy` 一维数组，便于后续存储或检索
 
+## 处理文本特征向量
+```python
+# text 需要的是二维 numpy 数组
+inputs = processor(text=[search_text], return_tensors="pt", padding=True) 
+with torch.no_grad(): 
+ text_embedding = model.get_text_features(**inputs).pooler_output.numpy().flatten()
+```
+
 ## 完整实例
 ```python
 from transformers import ChineseCLIPModel, ChineseCLIPProcessor

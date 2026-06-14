@@ -18,6 +18,7 @@ MinIO 包含以下四个基本概念：
 | **对象**   | Object                  | 实际存储的文件（图像、文本、视频等）。每个对象通过唯一的键（Key）在桶内定位。                       |
 | **端点**   | Endpoint                | MinIO 服务器的网络访问地址（例如 `http://192.168.1.100:9000`），客户端通过该地址连接服务。 |
 | **访问凭证** | Access Key / Secret Key | 身份验证信息。Access Key 相当于用户名，Secret Key 相当于密码，用于控制对桶和对象的操作权限。      |
+|          |                         |                                                                |
 - 对象存储采用扁平命名空间，不依赖传统文件系统的层级目录，但可通过键中的分隔符（如 `/`）模拟目录结构。
 - 每个桶可以配置独立的访问策略（私有、只读、公开等）
 
@@ -75,7 +76,7 @@ client.fget_object(
 
 ## 列出桶内对象
 ```python
-objects = client.list_objects("my-bucket", recursive=True)
+objects = client.list_objects("my-bucket")
 
 # obj 是一个迭代器, 包含对象属性, 但没有完整的数据
 for obj in objects:
