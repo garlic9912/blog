@@ -14,3 +14,10 @@ FastAPI (api.py, port 8000)
     └── Trino 查路径
 ```
 `FastAPI` 在这里扮演的角色就是**语言边界适配器**——Java 不能直接调 Python 函数，但所有语言都能发 HTTP 请求。
+- 第一次基准测试
+```
+环境：CPU推理，无GPU
+模型：ChineseCLIP ViT-B-16
+QPS：~6
+平均延迟：~168ms
+```
