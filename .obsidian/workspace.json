@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "d55f664c986da0e8",
+        "id": "43d28aa8b2713686",
         "type": "tabs",
         "children": [
           {
-            "id": "fe351357737327ff",
+            "id": "b9e21b624559b0f2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project/OpenLakes/openlakes 项目文档.md",
+                "file": "嵌入式/嵌入式Linux/线程/竞态条件.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "openlakes 项目文档"
+              "title": "竞态条件"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "嵌入式/嵌入式Linux/进程.md",
+                "file": "嵌入式/嵌入式Linux/线程/资源回收.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 进程"
+              "title": "Outline of 资源回收"
             }
           }
         ],
@@ -184,16 +184,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "fe351357737327ff",
+  "active": "b9e21b624559b0f2",
   "lastOpenFiles": [
-    "嵌入式/单片机.md",
+    "嵌入式/嵌入式Linux/线程/资源回收.md",
+    "嵌入式/嵌入式Linux/线程/竞态条件.md",
+    "嵌入式/嵌入式Linux/线程/基本概念.md",
     "Project/OpenLakes/openlakes 项目文档.md",
+    "嵌入式/嵌入式Linux/进程/共享内存.md",
+    "嵌入式/嵌入式Linux/线程",
+    "嵌入式/嵌入式Linux/进程/管道.md",
+    "嵌入式/嵌入式Linux/进程/基本概念.md",
+    "嵌入式/嵌入式Linux/进程",
+    "嵌入式/单片机.md",
     "assets/images/openlakes_00.png",
     "assets/images/ChatGPT Image 2026年6月22日 23_03_28.png",
     "Project/OpenLakes/environment_setup.md",
     "Project/OpenLakes/tech_stack/Trino.md",
     "Project/OpenLakes/tech_stack/Spark.md",
-    "嵌入式/嵌入式Linux/进程.md",
     "嵌入式/嵌入式Linux/Makefile.md",
     "嵌入式/嵌入式Linux/shell脚本.md",
     "嵌入式/嵌入式Linux/基本概念.md",
@@ -213,19 +220,13 @@
     "Python/Library/typing.md",
     "Python/Library/abc.md",
     "Python/syntax.md",
-    "Python/Library/BytesIO.md",
-    "SQL/CTE.md",
     "Project/MultiQuery-Engine",
     "AI/Untitled",
     "AI",
-    "Project/Untitled.md",
-    "Project/OpenLakes/tech_stack/TSDB.md",
     "Python/Library",
     "Project/PdfSeeker/tech-stack",
     "Project/PdfSeeker",
     "Project",
-    "SQL",
-    "Project/PdfSeeker/test",
     "Untitled.canvas",
     "Untitled 1.canvas"
   ]
