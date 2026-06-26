@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "嵌入式/嵌入式Linux/线程/竞态条件.md",
+                "file": "嵌入式/嵌入式Linux/线程/线程池.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "竞态条件"
+              "title": "线程池"
             }
           }
         ]
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "嵌入式/嵌入式Linux/线程/资源回收.md",
+                "file": "嵌入式/嵌入式Linux/线程/线程池.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 资源回收"
+              "title": "Outline of 线程池"
             }
           }
         ],
@@ -186,8 +186,9 @@
   },
   "active": "b9e21b624559b0f2",
   "lastOpenFiles": [
-    "嵌入式/嵌入式Linux/线程/资源回收.md",
     "嵌入式/嵌入式Linux/线程/竞态条件.md",
+    "嵌入式/嵌入式Linux/线程/线程池.md",
+    "嵌入式/嵌入式Linux/线程/资源回收.md",
     "嵌入式/嵌入式Linux/线程/基本概念.md",
     "Project/OpenLakes/openlakes 项目文档.md",
     "嵌入式/嵌入式Linux/进程/共享内存.md",
@@ -219,7 +220,6 @@
     "Project/MultiQuery-Engine/项目说明.md",
     "Python/Library/typing.md",
     "Python/Library/abc.md",
-    "Python/syntax.md",
     "Project/MultiQuery-Engine",
     "AI/Untitled",
     "AI",
